@@ -3,6 +3,8 @@ package org.fiftyshades.telegram;
 import com.google.gson.Gson;
 import com.jtelegram.api.TelegramBot;
 import com.jtelegram.api.TelegramBotRegistry;
+import com.jtelegram.api.chat.id.ChatId;
+import com.jtelegram.api.requests.message.send.SendText;
 import com.jtelegram.api.update.PollingUpdateProvider;
 import lombok.Getter;
 import org.fiftyshades.telegram.commands.WhatWouldHappen;
@@ -44,9 +46,23 @@ public class FiftyShadesBot {
             System.out.println("Successfully logged in as " + bot.getBotInfo().getUsername());
 
             bot.getCommandRegistry().registerCommand("whatwouldhappen", new WhatWouldHappen());
+
+            bot.perform(SendText.builder()
+                    .chatId(ChatId.of(config.getChatId()))
+                    .text("Successfully logged in!")
+                    .errorHandler((ex) -> {
+                        System.out.println("Could not send login message to configured chat id, are you sure its correct?");
+                        ex.printStackTrace();
+                    })
+                    .build());
         });
 
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> System.out.println("Bot killed.")));
+        Runtime.getRuntime().addShutdownHook(new Thread(() ->
+                bot.perform(SendText.builder()
+                        .text("Bot shutting down...")
+                        .chatId(ChatId.of(config.getChatId()))
+                        .build())
+        ));
     }
 
     private void loadConfig() throws IOException {

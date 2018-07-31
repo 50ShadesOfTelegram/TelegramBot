@@ -47,7 +47,7 @@ public class WhatWouldHappen implements CommandFilter {
             "[member] would have sex with [member] for [money]"
     };
 
-    private static final Map<String, List<String>> ITEMS = new HashMap<>() {{
+    private static final Map<String, List<String>> ITEMS = new HashMap<String, List<String>>() {{
         put("member", Arrays.asList("Mazen", "Mattrick", "Vilsol", "Amir", "Zack", "Ryan", "Davo", "Eddy", "Julian", "Mark", "James", "Boet", "Nick"));
         put("movement", Arrays.asList("#MeToo", "Black Lives Matter", "Impeach Trump", "9/11 Truth Movement", "Feminist Movement", "Pro-Islamophobia Movement",
                 "Fascism Movement", "Ku Klux Klan", "Men's rights", "Veganism", "Occupy Wall Street", "Pro-life", "Sex Workers' Rights"));

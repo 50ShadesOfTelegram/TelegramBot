@@ -7,6 +7,7 @@ import com.jtelegram.api.chat.id.ChatId;
 import com.jtelegram.api.requests.message.send.SendText;
 import com.jtelegram.api.update.PollingUpdateProvider;
 import lombok.Getter;
+import org.fiftyshades.telegram.commands.WhatWouldHappen;
 
 import java.io.File;
 import java.io.FileReader;
@@ -29,7 +30,7 @@ public class FiftyShadesBot {
 
     public void start() throws Exception {
         loadConfig();
-        
+
         TelegramBotRegistry registry = TelegramBotRegistry.builder()
                 .updateProvider(new PollingUpdateProvider())
                 .build();
@@ -43,14 +44,7 @@ public class FiftyShadesBot {
 
             this.bot = bot;
 
-            bot.getCommandRegistry().registerCommand("ping", (event, command) -> {
-                bot.perform(SendText.builder()
-                        .chatId(ChatId.of(command.getChat()))
-                        .text("no u")
-                        .build()
-                );
-                return true;
-            });
+            bot.getCommandRegistry().registerCommand("whatwouldhappen", new WhatWouldHappen());
         });
     }
 

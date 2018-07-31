@@ -7,6 +7,7 @@ WORKDIR /bot
 
 COPY src src
 COPY pom.xml pom.xml
+COPY config.json config.json
 
 RUN mvn package
 

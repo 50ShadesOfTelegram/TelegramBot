@@ -3,6 +3,8 @@ package org.fiftyshades.telegram;
 import com.google.gson.Gson;
 import com.jtelegram.api.TelegramBot;
 import com.jtelegram.api.TelegramBotRegistry;
+import com.jtelegram.api.chat.id.ChatId;
+import com.jtelegram.api.requests.message.send.SendText;
 import com.jtelegram.api.update.PollingUpdateProvider;
 import lombok.Getter;
 import org.fiftyshades.telegram.commands.WhatWouldHappen;
@@ -46,7 +48,12 @@ public class FiftyShadesBot {
             bot.getCommandRegistry().registerCommand("whatwouldhappen", new WhatWouldHappen());
         });
 
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> System.out.println("Bot killed.")));
+        Runtime.getRuntime().addShutdownHook(new Thread(() ->
+                bot.perform(SendText.builder()
+                        .text("Bot shutting down...")
+                        .chatId(ChatId.of(config.getChatId()))
+                        .build())
+        ));
     }
 
     private void loadConfig() throws IOException {

@@ -7,7 +7,6 @@ WORKDIR /bot
 
 COPY src src
 COPY pom.xml pom.xml
-COPY config.json config.json
 
 RUN mvn package
 
@@ -16,5 +15,6 @@ FROM openjdk:8-jre-alpine
 WORKDIR /bot
 
 COPY --from=build /bot/target/telegram-bot-1.0-SNAPSHOT.jar bot.jar
+COPY config.json config.json
 
 CMD java -jar bot.jar

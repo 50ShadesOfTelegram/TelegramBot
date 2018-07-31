@@ -23,7 +23,7 @@ public class FiftyShadesBot {
     private TelegramBot bot;
 
     public static void main(String[] args) throws Exception {
-        INSTANCE.start(args[0]);
+        INSTANCE.start(System.getenv("BOT_API_KEY"));
     }
 
     public void start(String apiKey) throws Exception {

@@ -109,6 +109,7 @@ public class WhatWouldHappen implements CommandFilter {
                 SendText.builder()
                         .chatId(ChatId.of(command.getChat()))
                         .text(message + ", " + option)
+                        .replyToMessageID(command.getBaseMessage().getMessageId())
                         .build()
         );
         return true;

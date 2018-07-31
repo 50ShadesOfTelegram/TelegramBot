@@ -67,6 +67,8 @@ public class WhatWouldHappen implements CommandFilter {
         put("job", Arrays.asList("Machine Learning Engineer™", "sex slave", "Chief Sexual Officer", "Chief Blockchain Officer", "janitor", "intern",
                 "spokesperson", "Vice President of Social Media", "Bi Engineer", "company prostitute", "puppy"));
         put("money", Arrays.asList("$2.5 billion", "10 cents", "$19.5 Billion", "some loose change and a bus pass", "an incomprehensible amount of money", "12 rupees", "50 bucks", "$0.02", "pretty much nothing", "1 MILLION DOLLARS"));
+        put("object", Arrays.asList("a dildo", "a knife", "a Mac", "an iPhone", "an anvil", "spiders", "a kangaroo", "a panda", "a member of ISIS", "a velociraptor",
+                "a nerf gun", "goats", "gay people", "flying sex snakes", "a banana", "a hot dog", "a dog", "Mazen's penis", "washing machine"));
     }};
 
     @Override
@@ -91,8 +93,8 @@ public class WhatWouldHappen implements CommandFilter {
         String name = command.getSender().getFirstName();
         String possessiveReplacement = (name.endsWith("s") ? name + "'" : name + "'s");
         String message = command.getArgsAsText()
-                .replaceAll("\\sI\\s/i", name)
-                .replaceAll("\\s(my|me)\\s/i", possessiveReplacement);
+                .replaceAll("/\\sI\\s/i", name)
+                .replaceAll("/\\s(my|me)\\s/i", possessiveReplacement);
 
         event.getBot().perform(
                 SendText.builder()

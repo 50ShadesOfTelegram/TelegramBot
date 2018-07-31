@@ -39,7 +39,7 @@ public class WhatWouldHappen implements CommandFilter {
             "[member] would sell themselves as a sex worker for [money]",
             "[member] would slap themselves with [object]",
             "[member] would come out as HowToBasic",
-            "[member] is exposed as the creator of jOOQ",
+            "[member] would be exposed as the creator of jOOQ",
             "[member] would let [member] lick their [body part]",
             "[member] would ejaculate [object]",
             "[member] would get a piercing on their [body part]",
@@ -73,6 +73,16 @@ public class WhatWouldHappen implements CommandFilter {
 
     @Override
     public boolean test(TextMessageEvent event, Command command) {
+        if (command.getArgs().isEmpty()) {
+            event.getBot().perform(
+                    SendText.builder()
+                            .chatId(ChatId.of(command.getChat()))
+                            .text("Fuck all would happen")
+                            .build()
+            );
+            return true;
+        }
+
         String option = OPTIONS[ThreadLocalRandom.current().nextInt(OPTIONS.length)];
 
         for (Map.Entry<String, List<String>> token : ITEMS.entrySet()) {
@@ -91,10 +101,9 @@ public class WhatWouldHappen implements CommandFilter {
         }
 
         String name = command.getSender().getFirstName();
-        String possessiveReplacement = (name.endsWith("s") ? name + "'" : name + "'s");
         String message = command.getArgsAsText()
-                .replaceAll("/\\sI\\s/i", name)
-                .replaceAll("/\\s(my|me)\\s/i", possessiveReplacement);
+                .replaceAll("\\sI(?i)\\s", " " + name + " ")
+                .replaceAll("\\s(my|me)(?i)\\s", " their ");
 
         event.getBot().perform(
                 SendText.builder()

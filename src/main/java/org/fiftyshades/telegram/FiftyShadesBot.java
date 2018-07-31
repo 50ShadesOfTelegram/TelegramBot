@@ -41,9 +41,12 @@ public class FiftyShadesBot {
             }
 
             this.bot = bot;
+            System.out.println("Successfully logged in as " + bot.getBotInfo().getUsername());
 
             bot.getCommandRegistry().registerCommand("whatwouldhappen", new WhatWouldHappen());
         });
+
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> System.out.println("Bot killed.")));
     }
 
     private void loadConfig() throws IOException {

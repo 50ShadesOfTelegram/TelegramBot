@@ -3,8 +3,6 @@ package org.fiftyshades.telegram;
 import com.google.gson.Gson;
 import com.jtelegram.api.TelegramBot;
 import com.jtelegram.api.TelegramBotRegistry;
-import com.jtelegram.api.chat.id.ChatId;
-import com.jtelegram.api.requests.message.send.SendText;
 import com.jtelegram.api.update.PollingUpdateProvider;
 import lombok.Getter;
 import org.fiftyshades.telegram.commands.WhatWouldHappen;
@@ -25,17 +23,17 @@ public class FiftyShadesBot {
     private TelegramBot bot;
 
     public static void main(String[] args) throws Exception {
-        INSTANCE.start();
+        INSTANCE.start(args[0]);
     }
 
-    public void start() throws Exception {
+    public void start(String apiKey) throws Exception {
         loadConfig();
 
         TelegramBotRegistry registry = TelegramBotRegistry.builder()
                 .updateProvider(new PollingUpdateProvider())
                 .build();
 
-        registry.registerBot(config.getApiKey(), (bot, error) -> {
+        registry.registerBot(apiKey, (bot, error) -> {
             if (error != null) {
                 System.out.println("Unable to login into telegram with provided api key! Printing error...");
                 error.printStackTrace();
@@ -53,8 +51,7 @@ public class FiftyShadesBot {
             CONFIG_FILE.createNewFile();
             saveConfig();
 
-            System.out.println("Default config saved. Please modify it before continuing");
-            System.exit(-1);
+            System.out.println("Default config saved.");
             return;
         }
 

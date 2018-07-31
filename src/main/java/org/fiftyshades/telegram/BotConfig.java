@@ -4,5 +4,4 @@ import lombok.Getter;
 
 @Getter
 public class BotConfig {
-    private String apiKey = "putApiKeyHere";
 }

@@ -41,6 +41,7 @@ public class FiftyShadesBot {
             }
 
             this.bot = bot;
+            System.out.println("Successfully logged in as " + bot.getBotInfo().getUsername());
 
             bot.getCommandRegistry().registerCommand("whatwouldhappen", new WhatWouldHappen());
         });

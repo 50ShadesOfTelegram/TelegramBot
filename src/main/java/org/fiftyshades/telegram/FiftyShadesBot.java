@@ -45,6 +45,8 @@ public class FiftyShadesBot {
 
             bot.getCommandRegistry().registerCommand("whatwouldhappen", new WhatWouldHappen());
         });
+
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> System.out.println("Bot killed.")));
     }
 
     private void loadConfig() throws IOException {

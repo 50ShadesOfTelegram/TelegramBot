@@ -73,6 +73,16 @@ public class WhatWouldHappen implements CommandFilter {
 
     @Override
     public boolean test(TextMessageEvent event, Command command) {
+        if (command.getArgs().isEmpty()) {
+            event.getBot().perform(
+                    SendText.builder()
+                            .chatId(ChatId.of(command.getChat()))
+                            .text("Fuck all would happen")
+                            .build()
+            );
+            return true;
+        }
+
         String option = OPTIONS[ThreadLocalRandom.current().nextInt(OPTIONS.length)];
 
         for (Map.Entry<String, List<String>> token : ITEMS.entrySet()) {

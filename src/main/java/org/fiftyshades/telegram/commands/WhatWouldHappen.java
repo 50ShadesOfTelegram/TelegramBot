@@ -19,7 +19,7 @@ public class WhatWouldHappen implements CommandFilter {
             "[member] would be featured on [show]",
             "[member] would leak [company]'s codebase",
             "[member] would let [member] use their [sex toy]",
-            "[member] would publicly sexually abuse [member]",
+            "[member] would sexually abuse [member] publicly",
             "[member] would become [member]'s slave for the day",
             "[member], [member], and [member] would join [extreme group]",
             "[member] would convert to [religion]",
@@ -48,12 +48,12 @@ public class WhatWouldHappen implements CommandFilter {
     };
 
     private static final Map<String, List<String>> ITEMS = new HashMap<String, List<String>>() {{
-        put("member", Arrays.asList("Mazen", "Mattrick", "Vilsol", "Amir", "Zack", "Ryan", "Davo", "Eddy", "Julian", "Mark", "James", "Boet", "Nick"));
+        put("member", Arrays.asList("Mazen", "Mattrick", "Vilsol", "Amir", "Zack", "Ryan", "Davo", "Edy", "Julian", "Mark", "James", "Boet", "Nick"));
         put("movement", Arrays.asList("#MeToo", "Black Lives Matter", "Impeach Trump", "9/11 Truth Movement", "Feminist Movement", "Pro-Islamophobia Movement",
                 "Fascism Movement", "Ku Klux Klan", "Men's rights", "Veganism", "Occupy Wall Street", "Pro-life", "Sex Workers' Rights"));
         put("sexuality", Arrays.asList("straight", "gay", "pansexual", "asexual", "furry", "objectumsexual"));
         put("gender", Arrays.asList("masculine female", "feminine female", "androgine female", "legendary cheese pizza", "masculine male", "feminine male",
-                "androgine female"));
+                "androgine female", "attack helicopter"));
         put("sex toy", Arrays.asList("dildo", "vibrator", "chastity belt", "GSpot Vibrator", "Fleshlight", "strap on", "vibrating dildo", "penis ring",
                 "masturbation sleeve", "penis pump", "cock cage", "vaginal dilator", "ball gag", "ball stretcher", "butt plug", "clit clamp", "clit pump",
                 "double ended vibrator", "penis extension", "sex doll", "sex swing"));
@@ -63,10 +63,10 @@ public class WhatWouldHappen implements CommandFilter {
                 "Comcast", "Time Warner Cable", "Verizon"));
         put("religion", Arrays.asList("Christianity", "Mormonism", "Moronism", "Islam", "Judaism", "Last Thursdayism", "Pastafarism", "Anti-theism", "Atheism"));
         put("act", Arrays.asList("fucking", "killing"));
-        put("body part", Arrays.asList("nose", "arm", "liver", "lung", "finger", "cock", "vagina", "ass", "asshole", "hair", "leg", "ear", "eye"));
+        put("body part", Arrays.asList("nose", "arm", "liver", "lung", "finger", "cock", "vagina", "ass", "asshole", "hair", "leg", "ear", "eye", "tongue"));
         put("job", Arrays.asList("Machine Learning Engineer™", "sex slave", "Chief Sexual Officer", "Chief Blockchain Officer", "janitor", "intern",
                 "spokesperson", "Vice President of Social Media", "Bi Engineer", "company prostitute", "puppy"));
-        put("money", Arrays.asList("$2.5 billion", "10 cents", "$19.5 Billion", "some loose change and a bus pass", "an incomprehensible amount of money", "12 rupees", "50 bucks", "$0.02", "pretty much nothing", "1 MILLION DOLLARS"));
+        put("money", Arrays.asList("$2.5 billion", "10 cents", "$19.5 Billion", "some loose change and a bus pass", "an incomprehensible amount of money", "12 rupees", "50 bucks", "$0.02", "pretty much nothing", "1 MILLION DOLLARS", "tree fiddy"));
         put("object", Arrays.asList("a dildo", "a knife", "a Mac", "an iPhone", "an anvil", "spiders", "a kangaroo", "a panda", "a member of ISIS", "a velociraptor",
                 "a nerf gun", "goats", "gay people", "flying sex snakes", "a banana", "a hot dog", "a dog", "Mazen's penis", "washing machine"));
     }};

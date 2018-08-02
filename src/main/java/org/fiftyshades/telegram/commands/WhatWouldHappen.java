@@ -15,7 +15,7 @@ public class WhatWouldHappen implements CommandFilter {
             "[member] would come out as [sexuality]",
             "[member] would come out as [gender]",
             "[member] and [member] would move in together",
-            "[member] would buy a [sexy toy]",
+            "[member] would buy a [sex toy]",
             "[member] would be featured on [show]",
             "[member] would leak [company]'s codebase",
             "[member] would let [member] use their [sex toy]",
@@ -35,7 +35,7 @@ public class WhatWouldHappen implements CommandFilter {
             "[company] would hire [member] as a [job]",
             "[member] would assault [member] with their [body part]",
             "[member] would slap [member] with their [body part]",
-            "[member] would slap [member] with their [sexy toy] on their [body part]",
+            "[member] would slap [member] with their [sex toy] on their [body part]",
             "[member] would sell themselves as a sex worker for [money]",
             "[member] would slap themselves with [object]",
             "[member] would come out as HowToBasic",
@@ -54,7 +54,7 @@ public class WhatWouldHappen implements CommandFilter {
         put("sexuality", Arrays.asList("straight", "gay", "pansexual", "asexual", "furry", "objectumsexual"));
         put("gender", Arrays.asList("masculine female", "feminine female", "androgine female", "legendary cheese pizza", "masculine male", "feminine male",
                 "androgine female"));
-        put("sexy toy", Arrays.asList("dildo", "vibrator", "chastity belt", "GSpot Vibrator", "Fleshlight", "strap on", "vibrating dildo", "penis ring",
+        put("sex toy", Arrays.asList("dildo", "vibrator", "chastity belt", "GSpot Vibrator", "Fleshlight", "strap on", "vibrating dildo", "penis ring",
                 "masturbation sleeve", "penis pump", "cock cage", "vaginal dilator", "ball gag", "ball stretcher", "butt plug", "clit clamp", "clit pump",
                 "double ended vibrator", "penis extension", "sex doll", "sex swing"));
         put("show", Arrays.asList("CNN", "Last Week Tonight", "Is This America?", "Sex and the City", "Love Island", "Black Mirror", "Westworld"));

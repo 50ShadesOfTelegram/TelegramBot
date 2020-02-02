@@ -1,7 +1,7 @@
 FROM openjdk:8-jdk as build
 
 RUN apt update
-RUN apt install -y maven
+RUN apt install -y maven curl
 
 WORKDIR /bot
 
@@ -17,4 +17,5 @@ WORKDIR /bot
 COPY --from=build /bot/target/telegram-bot-1.0-SNAPSHOT.jar bot.jar
 COPY config.json config.json
 
+HEALTHCHECK CMD curl --fail http://localhost:8080/health || exit 1
 CMD java -jar bot.jar

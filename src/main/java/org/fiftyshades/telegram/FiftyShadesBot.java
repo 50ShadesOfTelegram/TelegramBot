@@ -4,11 +4,13 @@ import com.google.gson.Gson;
 import com.jtelegram.api.TelegramBot;
 import com.jtelegram.api.TelegramBotRegistry;
 import com.jtelegram.api.chat.id.ChatId;
+import com.jtelegram.api.events.message.TextMessageEvent;
 import com.jtelegram.api.requests.message.send.SendText;
 import com.jtelegram.api.update.PollingUpdateProvider;
 import com.sun.net.httpserver.HttpServer;
 import lombok.Getter;
-import org.fiftyshades.telegram.commands.WhatWouldHappen;
+import org.fiftyshades.telegram.commands.*;
+import org.fiftyshades.telegram.listener.TopKekListener;
 
 import java.io.File;
 import java.io.FileReader;
@@ -51,6 +53,13 @@ public class FiftyShadesBot {
             setupHealthServer();
 
             bot.getCommandRegistry().registerCommand("whatwouldhappen", new WhatWouldHappen());
+            bot.getCommandRegistry().registerCommand("aesthetic", new Aesthetic());
+            bot.getCommandRegistry().registerCommand("choice", new Choice());
+            bot.getCommandRegistry().registerCommand("eightball", new EightBall());
+            bot.getCommandRegistry().registerCommand("idk", new Idk());
+            bot.getCommandRegistry().registerCommand("lenny", new Lenny());
+
+            bot.getEventRegistry().registerEvent(TextMessageEvent.class, new TopKekListener());
 
             bot.perform(SendText.builder()
                     .chatId(ChatId.of(config.getChatId()))

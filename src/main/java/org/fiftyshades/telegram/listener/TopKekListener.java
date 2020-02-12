@@ -37,7 +37,7 @@ public class TopKekListener implements EventHandler<TextMessageEvent> {
 
     private final Pattern assPattern = Pattern.compile("(\\w+)-ass (\\w+)", Pattern.CASE_INSENSITIVE);
 
-    private final Pattern subredditPattern = Pattern.compile("(^|\\s)/?r/(\\w+)[\\s$]?", Pattern.CASE_INSENSITIVE);
+    private final Pattern subredditPattern = Pattern.compile("(?:^|\\s)/?r/(\\w+)[\\s$]?", Pattern.CASE_INSENSITIVE);
 
     public TopKekListener() {
         try {

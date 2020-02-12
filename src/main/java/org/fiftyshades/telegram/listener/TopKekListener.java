@@ -51,7 +51,7 @@ public class TopKekListener implements EventHandler<TextMessageEvent> {
             e.printStackTrace();
         }
         textActions = new LinkedList<TextAction>() {{
-            add(TextAction.from((t, ev) -> t.toLowerCase().startsWith("@topkek_bot"), (e) -> e.getMessage().getContent().substring(11)));
+            //add(TextAction.from((t, ev) -> t.toLowerCase().startsWith("@topkek_bot"), (e) -> e.getMessage().getContent().substring(11)));
 
             //it's literally called "topkekbot" so this responds "kek" when someone says "top"
             add(TextAction.from((t, ev) -> t.equalsIgnoreCase("top"), (e) -> "kek"));
@@ -91,7 +91,7 @@ public class TopKekListener implements EventHandler<TextMessageEvent> {
             add(TextAction.from((t, ev) -> t.equalsIgnoreCase("*sigh*") && ev.getMessage().getSender().getUsername().equalsIgnoreCase("zackpollard"),
                     (e) -> "Yes yes Zack, we get it, you're sick of our shit."));
             add(TextAction.from((t, ev) -> t.toLowerCase().contains("girl") && ev.getMessage().getSender().getUsername().equalsIgnoreCase("MazenK"), (e) -> "April is watching..."));
-            add(TextAction.from((t, ev) -> t.contains("xD"), (e) -> {
+            add(TextAction.from((t, ev) -> t.equalsIgnoreCase("xD"), (e) -> {
                 String s = e.getMessage().getContent().toLowerCase();
                 int index = -1;
                 StringBuilder m = new StringBuilder();

@@ -15,7 +15,7 @@ jobs:
       uses: stCarolas/setup-maven@v1
 
     - name: Build project
-      run: mvn --settings .github/settings.xml clean package -Dgithub.user=${{ secrets.github_user }} -Dgithub.password=${{ secrets.github_pat }}
+      run: mvn -X --settings .github/settings.xml clean package -Dgithub.user=${{ secrets.github_user }} -Dgithub.password=${{ secrets.github_pat }}
 
     - uses: Azure/docker-login@v1
       with:

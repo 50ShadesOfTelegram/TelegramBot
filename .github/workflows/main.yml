@@ -19,7 +19,10 @@ jobs:
         repositories: '[{ "id": "gh-jtelegram", "url": "https://maven.pkg.github.com/jTelegram/jTelegramBotAPI" }]'
         server: |
           [{ "id": "gh-jtelegram", "username": "", "password": "${{ secrets.GITHUB_TOKEN }}" }]
-    
+
+    - name: Debug Settings
+      run: cat ~/.m2/settings.xml
+
     - name: Build project
       run: mvn clean package
 

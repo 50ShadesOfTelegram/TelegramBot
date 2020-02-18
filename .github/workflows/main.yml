@@ -17,7 +17,8 @@ jobs:
     - uses: whelk-io/maven-settings-xml-action@v4
       with:
         repositories: '[{ "id": "gh-jtelegram", "url": "https://maven.pkg.github.com/jTelegram/jTelegramBotAPI" }]'
-        server: '[{ "id": "gh-jtelegram", "username": "example", "password": "${{ secrets.GITHUB_TOKEN }}" }]'
+        server: |
+          [{ "id": "gh-jtelegram", "username": "", "password": "${{ secrets.GITHUB_TOKEN }}" }]
     
     - name: Build project
       run: mvn clean package

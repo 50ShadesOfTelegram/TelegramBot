@@ -16,7 +16,6 @@ jobs:
 
     - name: Set up Maven settings
       run: |
-        mkdir ~/.m2
         echo "<settings><servers><server><id>gh-jtelegram</id><username></username><password>${{ secrets.GITHUB_TOKEN }}</password></server></servers></settings>" > ~/.m2/settings.xml
 
     - name: Debug Settings

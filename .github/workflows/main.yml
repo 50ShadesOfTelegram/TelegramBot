@@ -10,14 +10,14 @@ jobs:
     - uses: actions/setup-java@v1
       with:
         java-version: 11
+        
+    - name: Setup Maven
+      uses: stCarolas/setup-maven@v1
 
     - uses: whelk-io/maven-settings-xml-action@v4
       with:
         repositories: '[{ "id": "gh-jtelegram", "url": "https://maven.pkg.github.com/jTelegram/jTelegramBotAPI" }]'
         server: '[{ "id": "gh-jtelegram", "username": "example", "password": "${{ secrets.GITHUB_TOKEN }}" }]'
-        
-    - name: Setup Maven
-      uses: stCarolas/setup-maven@v1
     
     - name: Build project
       run: mvn clean package

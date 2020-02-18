@@ -21,6 +21,9 @@ jobs:
     - name: Debug Settings
       run: cat ~/.m2/settings.xml
 
+    - name: Debug access
+      run: curl -u :${{ secrets.GITHUB_TOKEN }} https://maven.pkg.github.com/jTelegram/jTelegramBotAPI/com/jtelegram/jtelegrambotapi-core/4.0.5/jtelegrambotapi-core-4.0.5.pom
+
     - name: Build project
       run: mvn clean package -X
 

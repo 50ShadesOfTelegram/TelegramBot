@@ -1,5 +1,8 @@
 FROM openjdk:11.0-slim
 
+RUN apt update
+RUN apt install -y curl
+
 WORKDIR /bot
 
 COPY ./config.json config.json

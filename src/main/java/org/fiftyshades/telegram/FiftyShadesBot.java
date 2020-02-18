@@ -38,7 +38,9 @@ public class FiftyShadesBot {
         loadConfig();
 
         TelegramBotRegistry registry = TelegramBotRegistry.builder()
-                .updateProvider(new PollingUpdateProvider())
+                .updateProvider(PollingUpdateProvider.builder()
+                        .updateErrorHandler((e) -> {})
+                        .build())
                 .build();
 
         registry.registerBot(apiKey, (bot, error) -> {

@@ -22,7 +22,7 @@ jobs:
       run: cat ~/.m2/settings.xml
 
     - name: Build project
-      run: mvn clean package
+      run: mvn clean package -X
 
     - uses: Azure/docker-login@v1
       with:

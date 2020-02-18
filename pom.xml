@@ -25,7 +25,7 @@
 
     <repositories>
         <repository>
-            <id>gh-jtelegram</id>
+            <id>github</id>
             <url>https://maven.pkg.github.com/jTelegram/jTelegramBotAPI</url>
         </repository>
     </repositories>

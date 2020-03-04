@@ -19,6 +19,7 @@ import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.nio.file.Files;
 import java.util.Collections;
+import java.util.concurrent.TimeUnit;
 
 @Getter
 public class FiftyShadesBot {
@@ -39,7 +40,7 @@ public class FiftyShadesBot {
 
         TelegramBotRegistry registry = TelegramBotRegistry.builder()
                 .updateProvider(PollingUpdateProvider.builder()
-                        .updateErrorHandler((e) -> {})
+                        .maxUpdateAge(TimeUnit.MINUTES.toSeconds(10))
                         .build())
                 .build();
 

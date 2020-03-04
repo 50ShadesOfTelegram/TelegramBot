@@ -194,6 +194,7 @@ public class TopKekListener implements EventHandler<TextMessageEvent> {
         textActions.stream()
                 .map(t -> t.test(message, event) ? t.apply(event) : null)
                 .filter(Objects::nonNull)
+                .filter((response) -> !response.build().getText().trim().isEmpty())
                 .findFirst()
                 .map(response -> {
                     event.getBot().perform(

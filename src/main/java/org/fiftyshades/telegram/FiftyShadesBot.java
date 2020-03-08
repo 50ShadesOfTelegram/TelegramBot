@@ -30,6 +30,7 @@ public class FiftyShadesBot {
     private BotConfig config = new BotConfig();
     private TelegramBot bot;
     private HttpServer healthServer;
+    private PollingUpdateProvider updateProvider;
 
     public static void main(String[] args) throws Exception {
         INSTANCE.start(System.getenv("BOT_API_KEY"));
@@ -38,10 +39,12 @@ public class FiftyShadesBot {
     public void start(String apiKey) throws Exception {
         loadConfig();
 
+        updateProvider = PollingUpdateProvider.builder()
+                .maxUpdateAge(TimeUnit.MINUTES.toSeconds(10))
+                .build();
+
         TelegramBotRegistry registry = TelegramBotRegistry.builder()
-                .updateProvider(PollingUpdateProvider.builder()
-                        .maxUpdateAge(TimeUnit.MINUTES.toSeconds(10))
-                        .build())
+                .updateProvider(updateProvider)
                 .build();
 
         registry.registerBot(apiKey, (bot, error) -> {
@@ -93,8 +96,11 @@ public class FiftyShadesBot {
         }
 
         healthServer.createContext("/health").setHandler((he) -> {
-            byte[] response = "OK".getBytes();
-            he.sendResponseHeaders(200, response.length);
+            boolean result = updateProvider.getBotThreads().values()
+                    .stream().allMatch(Thread::isAlive);
+            byte[] response = "O".getBytes();
+
+            he.sendResponseHeaders(result ? 200 : 420, response.length);
 
             OutputStream output = he.getResponseBody();
 

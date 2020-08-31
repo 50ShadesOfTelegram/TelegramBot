@@ -91,6 +91,11 @@ public class TopKekListener implements EventHandler<TextMessageEvent> {
             add(TextAction.from((t, ev) -> t.equalsIgnoreCase("*sigh*") && ev.getMessage().getSender().getUsername().equalsIgnoreCase("zackpollard"),
                     (e) -> "Yes yes Zack, we get it, you're sick of our shit."));
             add(TextAction.from((t, ev) -> t.toLowerCase().contains("girl") && ev.getMessage().getSender().getUsername().equalsIgnoreCase("MazenK"), (e) -> "April is watching..."));
+            add(TextAction.from((t, ev) ->
+                                        ev.getMessage().getSender().getUsername().equalsIgnoreCase("DarkSeraphim") &&
+                                                (t.toLowerCase().contains(" gf ") || t.toLowerCase().contains("girlfriend")),
+                                e -> "ahem"
+            ));
             add(TextAction.from((t, ev) -> t.equalsIgnoreCase("xD"), (e) -> {
                 String s = e.getMessage().getContent().toLowerCase();
                 int index = -1;

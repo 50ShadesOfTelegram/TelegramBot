@@ -81,13 +81,6 @@ public class TopKekListener implements EventHandler<TextMessageEvent> {
                     SendText.builder().text("[Gotta be safe while keking!](http://v.bo0tzz.me/topkek)").parseMode(ParseMode.MARKDOWN)
             ));
             add(TextAction.from((t, ev) -> t.toLowerCase().contains("rawr"), (e) -> "xd"));
-            add(TextAction.from((t, ev) -> t.toLowerCase().contains("trump"), (e) -> {
-                int rand = secureRandom.nextInt(100);
-                if (rand < 5) {
-                    return "Lawdy lawdy lawdy, I dun seen the light, yes I did! He's come to save us all!";
-                }
-                return null;
-            }));
             add(TextAction.from((t, ev) -> t.equalsIgnoreCase("*sigh*") && ev.getMessage().getSender().getUsername().equalsIgnoreCase("zackpollard"),
                     (e) -> "Yes yes Zack, we get it, you're sick of our shit."));
             add(TextAction.from((t, ev) -> t.toLowerCase().contains("girl") && ev.getMessage().getSender().getUsername().equalsIgnoreCase("MazenK"), (e) -> "April is watching..."));

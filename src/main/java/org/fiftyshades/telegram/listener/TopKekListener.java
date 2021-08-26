@@ -68,7 +68,7 @@ public class TopKekListener implements EventHandler<TextMessageEvent> {
             add(TextAction.from((t, ev) -> t.equalsIgnoreCase("hi"), (e) -> "sup"));
             add(TextAction.from((t, ev) -> t.equalsIgnoreCase("sup"), (e) -> "hi"));
             add(TextAction.from((t, ev) -> t.equalsIgnoreCase("oh canada"), (e) -> "http://i.imgur.com/bULAfzE.jpg"));
-            add(TextAction.from((t, ev) -> t.equalsIgnoreCase("fat"), (e) -> "Zenexer is fat"));
+            add(TextAction.from((t, ev) -> t.equalsIgnoreCase("fat"), (e) -> "James is fat"));
             add(TextAction.from((t, ev) -> t.equalsIgnoreCase("skinny"), (e) -> "Fatass"));
             add(TextAction.from((t, ev) -> t.equalsIgnoreCase("fish go moo"), (e) -> "@TopKek_Bot notices that " + e.getMessage().getSender().getFullname() + " is truly enlightened."));
             add(TextAction.from((t, ev) -> t.toLowerCase().endsWith("go moo"), (e) -> "What are you, fucking retarded?"));

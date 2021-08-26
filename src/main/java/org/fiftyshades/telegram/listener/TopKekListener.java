@@ -57,10 +57,8 @@ public class TopKekListener implements EventHandler<TextMessageEvent> {
             add(TextAction.from((t, ev) -> t.equalsIgnoreCase("top"), (e) -> "kek"));
             add(TextAction.from((t, ev) -> t.toLowerCase().contains("good night"), (e) -> "goodnight bb, sweet dreams \uD83D\uDE18\uD83D\uDE18\uD83D\uDE18❤️❤️❤️\uD83D\uDC8B\uD83D\uDC8B\uD83D\uDC8B"));
             add(TextAction.from((t, ev) -> t.toLowerCase().contains("pleb"), (e) -> "Pleb, yes"));
-            add(TextAction.from((t, ev) -> t.toLowerCase().contains("fuck off"), (e) -> "No you fuck off, fucking idiot."));
             add(TextAction.from((t, ev) -> t.toLowerCase().contains("humble brag"), (e) -> "It's not their fault that they're better than you."));
             add(TextAction.from((t, ev) -> t.equalsIgnoreCase("not"), (e) -> "You - Not, Me - Bot"));
-            add(TextAction.from((t, ev) -> t.equalsIgnoreCase("bot"), (e) -> "I'm a bot and still smarter than you."));
             add(TextAction.from((t, ev) -> t.toLowerCase().contains("blend"), (e) -> "But will it blend?"));
             add(TextAction.from((t, ev) -> t.equalsIgnoreCase("thank mr bot"), (e) -> "may good cpus and dedotated wams come to you"));
             add(TextAction.from((t, ev) -> t.equalsIgnoreCase("nice meme"), (e) -> "http://niceme.me/nicememe.mp3"));
@@ -68,10 +66,7 @@ public class TopKekListener implements EventHandler<TextMessageEvent> {
             add(TextAction.from((t, ev) -> t.equalsIgnoreCase("hi"), (e) -> "sup"));
             add(TextAction.from((t, ev) -> t.equalsIgnoreCase("sup"), (e) -> "hi"));
             add(TextAction.from((t, ev) -> t.equalsIgnoreCase("oh canada"), (e) -> "http://i.imgur.com/bULAfzE.jpg"));
-            add(TextAction.from((t, ev) -> t.equalsIgnoreCase("fat"), (e) -> "James is fat"));
-            add(TextAction.from((t, ev) -> t.equalsIgnoreCase("skinny"), (e) -> "Fatass"));
             add(TextAction.from((t, ev) -> t.equalsIgnoreCase("fish go moo"), (e) -> "@TopKek_Bot notices that " + e.getMessage().getSender().getFullname() + " is truly enlightened."));
-            add(TextAction.from((t, ev) -> t.toLowerCase().endsWith("go moo"), (e) -> "What are you, fucking retarded?"));
             add(TextAction.from((t, ev) -> t.equalsIgnoreCase("moo"), (e) -> "woof"));
             add(TextAction.from((t, ev) -> t.contains("@topkek_bot"), (e) -> "topkek"));
             add(TextAction.from((t, ev) -> t.contains("@shibesquad"), (e) -> "+1"));
@@ -81,8 +76,6 @@ public class TopKekListener implements EventHandler<TextMessageEvent> {
                     SendText.builder().text("[Gotta be safe while keking!](http://v.bo0tzz.me/topkek)").parseMode(ParseMode.MARKDOWN)
             ));
             add(TextAction.from((t, ev) -> t.toLowerCase().contains("rawr"), (e) -> "xd"));
-            add(TextAction.from((t, ev) -> t.equalsIgnoreCase("*sigh*") && ev.getMessage().getSender().getUsername().equalsIgnoreCase("zackpollard"),
-                    (e) -> "Yes yes Zack, we get it, you're sick of our shit."));
             add(TextAction.from((t, ev) -> t.toLowerCase().contains("girl") && ev.getMessage().getSender().getUsername().equalsIgnoreCase("MazenK"), (e) -> "April is watching..."));
             add(TextAction.from((t, ev) ->
                                         ev.getMessage().getSender().getUsername().equalsIgnoreCase("DarkSeraphim") &&

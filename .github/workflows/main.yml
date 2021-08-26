@@ -12,7 +12,7 @@ jobs:
         java-version: 11
         
     - name: Setup Maven
-      uses: stCarolas/setup-maven@v1
+      uses: stCarolas/setup-maven@v4
 
     - name: Build project
       run: mvn --settings .github/settings.xml clean package -Dgithub.password=${{ secrets.GITHUB_TOKEN }}

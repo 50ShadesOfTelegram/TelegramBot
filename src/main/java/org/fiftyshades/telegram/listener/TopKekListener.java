@@ -73,12 +73,7 @@ public class TopKekListener implements EventHandler<TextMessageEvent> {
             add(TextAction.from((t, ev) -> t.contains("UUID"), (e) -> "Be careful with that UUID, you might get a collision!"));
             add(TextAction.from((t, ev) -> t.toLowerCase().contains("trident"), (e) -> secureRandom.nextInt(100) <= 15 ? "TridnetSDK is dead." : null));
             add(TextAction.from((t, ev) -> t.toLowerCase().contains("rawr"), (e) -> "xd"));
-            add(TextAction.from((t, ev) -> t.toLowerCase().contains("girl") && ev.getMessage().getSender().getUsername().equalsIgnoreCase("MazenK"), (e) -> "April is watching..."));
-            add(TextAction.from((t, ev) ->
-                                        ev.getMessage().getSender().getUsername().equalsIgnoreCase("DarkSeraphim") &&
-                                                (t.toLowerCase().contains(" gf ") || t.toLowerCase().contains("girlfriend")),
-                                e -> "ahem"
-            ));
+
             add(TextAction.from((t, ev) -> t.equalsIgnoreCase("xD"), (e) -> {
                 String s = e.getMessage().getContent().toLowerCase();
                 int index = -1;

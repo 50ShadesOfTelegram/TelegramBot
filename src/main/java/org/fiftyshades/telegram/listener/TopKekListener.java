@@ -72,9 +72,6 @@ public class TopKekListener implements EventHandler<TextMessageEvent> {
             add(TextAction.from((t, ev) -> t.contains("@shibesquad"), (e) -> "+1"));
             add(TextAction.from((t, ev) -> t.contains("UUID"), (e) -> "Be careful with that UUID, you might get a collision!"));
             add(TextAction.from((t, ev) -> t.toLowerCase().contains("trident"), (e) -> secureRandom.nextInt(100) <= 15 ? "TridnetSDK is dead." : null));
-            add(new TextAction((t, ev) -> t.toLowerCase().contains("topkek"), (e) ->
-                    SendText.builder().text("[Gotta be safe while keking!](http://v.bo0tzz.me/topkek)").parseMode(ParseMode.MARKDOWN)
-            ));
             add(TextAction.from((t, ev) -> t.toLowerCase().contains("rawr"), (e) -> "xd"));
             add(TextAction.from((t, ev) -> t.toLowerCase().contains("girl") && ev.getMessage().getSender().getUsername().equalsIgnoreCase("MazenK"), (e) -> "April is watching..."));
             add(TextAction.from((t, ev) ->

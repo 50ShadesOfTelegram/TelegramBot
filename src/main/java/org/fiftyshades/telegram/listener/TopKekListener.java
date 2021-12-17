@@ -27,29 +27,13 @@ public class TopKekListener implements EventHandler<TextMessageEvent> {
     private final List<TextAction> textActions;
     private final String[] xd = {"x", "X", "d", "D"};
 
-    private final Pattern jokesOnYouPattern = Pattern.compile("\\bjoke'?s?\\s+on\\s+you\\b", Pattern.CASE_INSENSITIVE);
-    private final String jokesOnYouUrl = "http://i.imgur.com/4y6krel.png";
-    private final Pattern jestOnTheePattern = Pattern.compile("\\bjest'?s?\\s+(?:on|(?:be\\s+)?with)\\s+th(?:ee|ou)\\b", Pattern.CASE_INSENSITIVE);
-    private final String jestOnTheeUrl = "http://i.imgur.com/SzxKs5a.png";
     private final SecureRandom secureRandom = new SecureRandom();
-    private InputFile jokesOnYouFile;
-    private InputFile jestOnTheeFile;
 
     private final Pattern assPattern = Pattern.compile("(\\w+)-ass (\\w+)", Pattern.CASE_INSENSITIVE);
 
     private final Pattern subredditPattern = Pattern.compile("(?:^|\\s)/?r/(\\w+)[\\s$]?", Pattern.CASE_INSENSITIVE);
 
     public TopKekListener() {
-        try {
-            this.jokesOnYouFile = new ExternalInputFile(new URL(jokesOnYouUrl));
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        try {
-            this.jestOnTheeFile = new ExternalInputFile(new URL(jestOnTheeUrl));
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
         textActions = new LinkedList<TextAction>() {{
             //add(TextAction.from((t, ev) -> t.toLowerCase().startsWith("@topkek_bot"), (e) -> e.getMessage().getContent().substring(11)));
 
@@ -116,30 +100,6 @@ public class TopKekListener implements EventHandler<TextMessageEvent> {
 
                 return null;
             }));
-
-            if (jokesOnYouFile != null) {
-                add(new TextAction((t, ev) -> jokesOnYouPattern.matcher(t).find(), e -> {
-                    e.getBot().perform (
-                            SendPhoto.builder()
-                                    .chatId(e.getMessage().getChat().getChatId())
-                                    .photo(jokesOnYouFile)
-                                    .build()
-                    );
-                    return null;
-                }));
-            }
-
-            if (jestOnTheeFile != null) {
-                add(new TextAction((t, ev) -> jestOnTheePattern.matcher(t).find(), e -> {
-                    e.getBot().perform (
-                            SendPhoto.builder()
-                                    .chatId(e.getMessage().getChat().getChatId())
-                                    .photo(jestOnTheeFile)
-                                    .build()
-                    );
-                    return null;
-                }));
-            }
         }};
 
 
